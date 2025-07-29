@@ -1,0 +1,23 @@
+[project]
+name = "my-bootdev-project"
+version = "0.1.0"
+description = "Asteroids game with Boot.dev"
+authors = ["vandruil 146136334+vandruil@users.noreply.github.com"]
+dependencies = [
+  "ruff",
+  "pygame==2.6.1"
+]
+requires-python = ">=3.10"
+
+[tool.ruff]
+lint.select = ["E", "F", "B", "I"]
+exclude = [".venv", "venv", "__pycache__"]
+lint.fixable = ["ALL"]
+lint.unfixable = []
+line-length = 88
+
+[tool.ruff.format]
+preview = true
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
