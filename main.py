@@ -1,6 +1,6 @@
 import pygame
 
-from constants import SCREEN_HEIGHT, SCREEN_WIDTH
+from constants import *
 
 
 def main():
@@ -18,7 +18,7 @@ def main():
         pygame.display.flip()
 
         dt = clock.tick(60) / 1000
-        print(clock.get_fps())
+        # print(clock.get_fps())
 
 
 if __name__ == "__main__":
