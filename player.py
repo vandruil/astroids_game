@@ -1,7 +1,7 @@
 import pygame
 
 from circleshape import CircleShape
-from constants import PLAYER_RADIUS
+from constants import PLAYER_RADIUS, PLAYER_TURN_SPEED
 
 
 class Player(CircleShape):
@@ -37,3 +37,29 @@ class Player(CircleShape):
         screen (pygame.Surface): The surface to draw the player on
         """
         return pygame.draw.polygon(screen, "white", self.triangle(), 2)
+    
+    
+    def rotate(self, dt):
+        """
+        Rotate the Player on the screen.
+
+        Args:
+        dt : Delta Time 
+        
+        """
+        self.rotation += +(PLAYER_TURN_SPEED * dt)
+        self.rotation = (self.rotation % 360 + 360) % 360
+        
+
+    def update(self, dt):
+        """
+        
+        """
+        keys = pygame.key.get_pressed()
+
+        if keys[pygame.K_a]:
+            self.rotate(dt = -dt)
+             
+        if keys[pygame.K_d]:
+            self.rotate(dt)
+            
