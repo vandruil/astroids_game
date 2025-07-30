@@ -12,4 +12,13 @@ class Shot(CircleShape):
         pygame.draw.circle(screen, "white", self.position, self.radius, 2)
 
     def update(self, dt):
+        """
+        Updates the Shot state in the Game Loop
+
+        Args:
+
+        dt : Delta Time
+
+        """
+
         self.position += self.velocity * dt
