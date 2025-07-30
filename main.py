@@ -1,3 +1,5 @@
+import sys
+
 import pygame
 
 from asteroid import Asteroid
@@ -15,10 +17,10 @@ def main():
     drawable = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
 
-    AsteroidField.containers = updatable  # pyright: ignore[reportAttributeAccessIssue]
     Asteroid.containers = (asteroids, updatable, drawable)  # pyright: ignore[reportAttributeAccessIssue]
+    AsteroidField.containers = (updatable,)  # pyright: ignore[reportAttributeAccessIssue]
 
-    asteroid_field = AsteroidField()
+    asteroid_field = AsteroidField()  # noqa: F841
 
     Player.containers = (updatable, drawable)  # pyright: ignore[reportAttributeAccessIssue]
 
@@ -34,7 +36,12 @@ def main():
 
         screen.fill("black")
 
-        updatable.update(dt)
+        for obj in updatable:
+            obj.update(dt)
+
+        for obj in asteroids:
+            if obj.collision(player):
+                sys.exit("GAME OVER")
 
         for sprite in drawable:
             sprite.draw(screen)
