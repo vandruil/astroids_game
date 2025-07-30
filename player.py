@@ -36,7 +36,7 @@ class Player(CircleShape):
         Args:
         screen (pygame.Surface): The surface to draw the player on
         """
-        return pygame.draw.polygon(screen, "white", self.triangle(), 2)
+        pygame.draw.polygon(screen, "white", self.triangle(), 2)  # pyright: ignore[reportArgumentType]
 
     def rotate(self, dt):
         """

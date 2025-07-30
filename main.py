@@ -9,12 +9,11 @@ def main():
     screen = pygame.display.set_mode(size=(SCREEN_WIDTH, SCREEN_HEIGHT))
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
-    Player.containers = (updatable, drawable)
+    Player.containers = (updatable, drawable)  # pyright: ignore[reportAttributeAccessIssue]
     player = Player(x=SCREEN_WIDTH / 2, y=SCREEN_HEIGHT / 2)  # noqa: F841
     clock = pygame.time.Clock()
     dt = 0
 
-    
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
