@@ -24,3 +24,6 @@ Thumbs.db
 dist/
 build/
 *.egg-info/
+
+# Furte Ideas
+expanding_the_project.txt
