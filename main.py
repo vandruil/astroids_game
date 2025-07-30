@@ -1,8 +1,8 @@
 import pygame
 
+from Asteroid import Asteroid
 from constants import SCREEN_HEIGHT, SCREEN_WIDTH
 from player import Player
-from Asteroid import Asteroid
 
 
 def main():
